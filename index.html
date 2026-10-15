@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WNY Rental Deal Finder | Pezzimenti Realty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Halant:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Howard Hanna Professionals palette (brand style guide, Color page) */
+:root{--forest:#0e3a32;--emerald:#005a4e;--seafoam:#9fc8bd;--frost:#d0e2da;--white:#ffffff;
+--gold:#b88128;--khaki:#b8a171;--wheat:#dbcfa7;--linen:#ece9d3;--slate:#2e2e2e;
+--head:'PP Fragment Glare','Halant',Georgia,serif;--body:'TT Commons Pro','Hanken Grotesk',Verdana,sans-serif}
+/* Licensed brand fonts: drop the files Paul supplies into assets/fonts/ */
+@font-face{font-family:'PP Fragment Glare';src:url('assets/fonts/PPFragment-GlareRegular.woff2') format('woff2'),url('assets/fonts/PPFragment-GlareRegular.otf') format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'PP Fragment Glare';src:url('assets/fonts/PPFragment-GlareBold.woff2') format('woff2'),url('assets/fonts/PPFragment-GlareBold.otf') format('opentype');font-weight:700;font-display:swap}
+@font-face{font-family:'TT Commons Pro';src:url('assets/fonts/TTCommonsPro-Regular.woff2') format('woff2'),url('assets/fonts/TTCommonsPro-Regular.otf') format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'TT Commons Pro';src:url('assets/fonts/TTCommonsPro-Medium.woff2') format('woff2'),url('assets/fonts/TTCommonsPro-Medium.otf') format('opentype');font-weight:500;font-display:swap}
+@font-face{font-family:'TT Commons Pro';src:url('assets/fonts/TTCommonsPro-DemiBold.woff2') format('woff2'),url('assets/fonts/TTCommonsPro-DemiBold.otf') format('opentype');font-weight:600;font-display:swap}
+*{box-sizing:border-box}body{margin:0;font-family:var(--body);color:var(--slate);background:var(--linen);line-height:1.45}
+h1,h2,h3{font-family:var(--head);color:var(--forest);font-weight:700;letter-spacing:.01em}
+a{color:var(--emerald)}
+header{background:var(--forest);color:var(--white);padding:22px 16px 26px;border-bottom:4px solid var(--gold)}
+header .logo{height:34px;display:block;margin-bottom:16px}
+header h1{color:var(--white);margin:0;font-size:2rem;line-height:1.1}header p{margin:8px 0 0;color:var(--frost);max-width:760px}
+.wrap{max-width:1150px;margin:auto;padding:14px}
+.cta{background:var(--white);border-left:5px solid var(--gold);padding:14px 16px;border-radius:8px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin:6px 0 14px}
+.cta .who{display:flex;gap:14px;align-items:center}.cta img{height:64px}
+.cta b{font-family:var(--head);color:var(--forest);font-size:1.15rem}
+.btn{background:var(--gold);color:var(--white)!important;padding:11px 20px;border-radius:6px;text-decoration:none;font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:.85rem}
+.btn:hover{background:var(--forest)}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;background:var(--white);padding:12px;border-radius:8px}
+label{font-size:.72rem;font-weight:600;color:var(--emerald);display:block;text-transform:uppercase;letter-spacing:.06em}
+select,input{width:100%;padding:7px;border:1px solid var(--wheat);border-radius:5px;font:inherit;font-size:.9rem;background:#fff}
+#count{margin:10px 2px;font-size:.9rem;color:var(--emerald)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{background:var(--white);border-radius:8px;padding:14px;border-top:3px solid var(--forest);box-shadow:0 1px 3px rgba(14,58,50,.12)}
+.card h3{margin:0 0 2px;font-size:1.15rem}.sub{font-size:.8rem;color:#5b5b5b;margin-bottom:8px}
+.scores{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.pill{font-size:.75rem;padding:3px 9px;border-radius:12px;background:var(--linen);color:var(--slate)}
+.pill.hi{background:var(--frost);color:var(--forest);font-weight:600}.pill.lo{background:var(--wheat)}
+.kv{display:grid;grid-template-columns:1fr 1fr;font-size:.88rem;gap:2px 10px}.kv b{font-weight:600;color:var(--forest)}
+.flags{font-size:.76rem;color:#7a5418;margin-top:8px}.card a{color:var(--emerald);font-weight:600}
+.ok{color:var(--emerald)!important;font-weight:700}.no{color:var(--gold)!important;font-weight:700}
+details{background:var(--white);padding:12px 16px;border-radius:8px;margin:14px 0;font-size:.88rem}summary{font-family:var(--head);color:var(--forest);font-size:1.05rem;cursor:pointer}
+.disc{font-size:.8rem;color:#555}
+footer{background:var(--forest);color:var(--frost);font-size:.8rem;padding:24px 16px;text-align:center;border-top:4px solid var(--gold)}
+footer img{height:90px;display:block;margin:0 auto 12px}footer a{color:var(--wheat)}
+@media(max-width:600px){header h1{font-size:1.55rem}header .logo{height:24px}.cta img{height:48px}.btn{width:100%;text-align:center}}
+</style></head><body>
+<header><div class="wrap" style="padding:0"><img class="logo" src="assets/logo-horizontal-white-gold.png" alt="Howard Hanna Professionals"><h1>Western NY Rental Deal Finder</h1><p>Every for-sale single-family and 2–4 unit listing ($40k–$500k) across Erie, Niagara, Cattaraugus, Chautauqua, Allegany, Genesee, Wyoming &amp; Orleans counties — scored daily.</p></div></header>
+<div class="wrap">
+<div class="cta"><div class="who"><img src="assets/logo-stacked-monogram.png" alt="Howard Hanna Professionals"><div><b>Want help underwriting or touring one of these?</b><br>Paul Pezzimenti · Pezzimenti Realty / Howard Hanna, Olean · <a href="tel:+17163787039">716-378-7039</a> · <a href="mailto:paul@paulpezzimenti.com">paul@paulpezzimenti.com</a></div></div>
+<a class="btn" href="mailto:paul@paulpezzimenti.com?subject=WNY%20rental%20deal%20inquiry">Contact Paul</a></div>
+<div class="filters">
+<div><label>Sort by</label><select id="sort"><option value="score_overall">Overall score</option><option value="score_cash_flow">Cash-flow investor</option><option value="score_turnkey">Turnkey / low headache</option><option value="score_value_add">Value-add / BRRRR</option><option value="score_appreciation">Appreciation</option><option value="deal_score">Deal score</option><option value="location_score">Location score</option><option value="obs_condition">Observed condition</option><option value="coc">Cash-on-cash</option><option value="cfd">Cash flow / door</option><option value="cap">Cap rate</option><option value="price_asc">Price (low→high)</option></select></div>
+<div><label>County</label><select id="county"><option value="">All</option></select></div>
+<div><label>Municipality</label><select id="muni"><option value="">All</option></select></div>
+<div><label>Min price</label><input id="pmin" type="number" placeholder="40000"></div>
+<div><label>Max price</label><input id="pmax" type="number" placeholder="500000"></div>
+<div><label>Units</label><select id="units"><option value="">Any</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div><label>Condition OK?</label><select id="ok"><option value="">Any</option><option value="YES">Yes</option><option value="NO">No</option></select></div>
+<div><label>Meets all criteria</label><select id="pass"><option value="">Any</option><option value="1">Yes only</option></select></div>
+</div>
+<div id="count"></div><div class="grid" id="list"></div>
+<details><summary><b>How the scores work</b></summary>
+<p><b>Deal (0–100):</b> rent-to-price, cash flow per door, cash-on-cash and cap rate, assuming 20% down at the current 30-yr rate plus an investor premium, estimated taxes, insurance, and 8% vacancy, 8% repairs, 5% capex, 8% management. <b>Location (0–100):</b> NY DCJS index-crime rate for the property's actual municipality, NYSED graduation and Regents-with-Advanced rates for its school district, and local median list $/sqft, ranked across all listings. <b>Condition:</b> the condition the numbers require (100 − Deal) vs an observed estimate from listing text, age and price/sqft. Style scores blend the three with different weights.</p></details>
+<p class="disc"><b>Disclaimer:</b> All figures are automated estimates for informational purposes only and are not financial, legal or investment advice or an appraisal. Rents are third-party estimates; taxes are estimated from published full-value rates, not actual bills; condition is inferred from listing text, not an inspection. Listing data may be outdated or inaccurate. Verify everything independently before making any decision.</p>
+</div>
+<footer><img src="assets/logo-stacked-monogram-white-gold.png" alt="Howard Hanna Professionals">Paul Pezzimenti · Pezzimenti Realty · Howard Hanna Professionals · Olean, NY · <a href="tel:+17163787039">716-378-7039</a> · <a href="mailto:paul@paulpezzimenti.com">paul@paulpezzimenti.com</a><br><span id="upd"></span></footer>
+<script>
+const $=id=>document.getElementById(id);let D=[];
+const money=v=>v==null||v===''?'—':'$'+Math.round(v).toLocaleString();const pct=v=>v==null||v===''?'—':(v*100).toFixed(1)+'%';
+const pill=(n,v)=>v==null||v===''?`<span class="pill">${n} —</span>`:`<span class="pill ${v>=65?'hi':v<35?'lo':''}">${n} ${Math.round(v)}</span>`;
+function opts(id,vals){[...new Set(vals)].filter(Boolean).sort().forEach(v=>$(id).insertAdjacentHTML('beforeend',`<option>${v}</option>`))}
+function render(){let s=$('sort').value,c=$('county').value,m=$('muni').value,a=+$('pmin').value||0,b=+$('pmax').value||1e9,u=$('units').value,ok=$('ok').value,p=$('pass').value;
+ let r=D.filter(x=>(!c||x.county==c)&&(!m||x.municipality==m)&&x.price>=a&&x.price<=b&&(!u||x.units==u)&&(!ok||x.meets==ok)&&(!p||x.pass===true));
+ if(s=='price_asc')r.sort((x,y)=>x.price-y.price);else r.sort((x,y)=>(y[s]??-1e9)-(x[s]??-1e9));
+ $('count').textContent=`${r.length} of ${D.length} listings`;
+ $('list').innerHTML=r.slice(0,200).map(x=>`<div class="card"><h3>${x.address}</h3><div class="sub">${x.municipality||x.town}, ${x.county} County · ${x.type} · ${x.units} unit${x.units>1?'s':''} · ${x.beds??'?'}bd/${x.baths??'?'}ba${x.year?' · built '+x.year:''}</div>
+ <div class="scores">${pill('Overall',x.score_overall)}${pill('Deal',x.deal_score)}${pill('Location',x.location_score)}${pill('Condition',x.obs_condition)}</div>
+ <div class="kv"><span>Price</span><b>${money(x.price)}</b><span>Est. rent</span><b>${money(x.rent)}/mo</b><span>Cash flow/door</span><b>${money(x.cfd)}/mo</b><span>Cash-on-cash</span><b>${pct(x.coc)}</b><span>Cap rate</span><b>${pct(x.cap)}</b><span>Condition OK?</span><b class="${x.meets=='YES'?'ok':'no'}">${x.meets||'—'}</b></div>
+ ${x.flags&&x.flags!=''?`<div class="flags">⚠ ${x.flags}</div>`:''}<div style="margin-top:8px"><a href="${x.link}" target="_blank" rel="noopener">View listing →</a></div></div>`).join('')+(r.length>200?'<p>Showing first 200 — refine filters.</p>':'')}
+fetch(window.DEALS_URL||'data/deals_web.json').then(r=>r.json()).then(j=>{D=j;opts('county',D.map(x=>x.county));opts('muni',D.map(x=>x.municipality));$('upd').textContent='Data updated '+(D[0]?.date||'');
+ ['sort','county','muni','pmin','pmax','units','ok','pass'].forEach(i=>$(i).addEventListener('input',render));render()});
+</script></body></html>
