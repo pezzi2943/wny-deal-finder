@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WNY Rental Deal Finder | Pezzimenti Realty</title>
+<title>WNY Rental Deal Finder | Howard Hanna Professionals</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Halant:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -18,7 +18,7 @@ h1,h2,h3{font-family:var(--head);color:var(--forest);font-weight:700;letter-spac
 a{color:var(--emerald)}
 header{background:var(--forest);color:var(--white);padding:22px 16px 26px;border-bottom:4px solid var(--gold)}
 header .logo{height:34px;display:block;margin-bottom:16px}
-header h1{color:var(--white);margin:0;font-size:2rem;line-height:1.1}header p{margin:8px 0 0;color:var(--frost);max-width:760px}
+header h1{color:var(--white);margin:0;font-size:2rem;line-height:1.1;font-weight:400}header p{margin:8px 0 0;color:var(--frost);max-width:760px}
 .wrap{max-width:1150px;margin:auto;padding:14px}
 .cta{background:var(--white);border-left:5px solid var(--gold);padding:14px 16px;border-radius:8px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin:6px 0 14px}
 .cta .who{display:flex;gap:14px;align-items:center}.cta img{height:64px}
@@ -45,8 +45,8 @@ footer img{height:90px;display:block;margin:0 auto 12px}footer a{color:var(--whe
 </style></head><body>
 <header><div class="wrap" style="padding:0"><img class="logo" src="assets/logo-horizontal-white-gold.png" alt="Howard Hanna Professionals"><h1>Western NY Rental Deal Finder</h1><p>Every for-sale single-family and 2–4 unit listing ($40k–$500k) across Erie, Niagara, Cattaraugus, Chautauqua, Allegany, Genesee, Wyoming &amp; Orleans counties — scored daily.</p></div></header>
 <div class="wrap">
-<div class="cta"><div class="who"><img src="assets/logo-stacked-monogram.png" alt="Howard Hanna Professionals"><div><b>Want help underwriting or touring one of these?</b><br>Paul Pezzimenti · Pezzimenti Realty / Howard Hanna, Olean · <a href="tel:+17163787039">716-378-7039</a> · <a href="mailto:paul@paulpezzimenti.com">paul@paulpezzimenti.com</a></div></div>
-<a class="btn" href="mailto:paul@paulpezzimenti.com?subject=WNY%20rental%20deal%20inquiry">Contact Paul</a></div>
+<div class="cta"><div class="who"><img src="assets/logo-stacked-monogram.png" alt="Howard Hanna Professionals"><div><b>Want help underwriting or touring one of these?</b><br>Paul Pezzimenti · Howard Hanna Professionals, 410 Wayne Street, Olean, NY 14760 · <a href="tel:+17163787039">716-378-7039</a> · <a href="mailto:paulpezzimenti@howardhanna.com">paulpezzimenti@howardhanna.com</a></div></div>
+<a class="btn" href="mailto:paulpezzimenti@howardhanna.com?subject=WNY%20rental%20deal%20inquiry">Contact Paul</a></div>
 <div class="filters">
 <div><label>Sort by</label><select id="sort"><option value="score_overall">Overall score</option><option value="score_cash_flow">Cash-flow investor</option><option value="score_turnkey">Turnkey / low headache</option><option value="score_value_add">Value-add / BRRRR</option><option value="score_appreciation">Appreciation</option><option value="deal_score">Deal score</option><option value="location_score">Location score</option><option value="obs_condition">Observed condition</option><option value="coc">Cash-on-cash</option><option value="cfd">Cash flow / door</option><option value="cap">Cap rate</option><option value="price_asc">Price (low→high)</option></select></div>
 <div><label>County</label><select id="county"><option value="">All</option></select></div>
@@ -62,7 +62,7 @@ footer img{height:90px;display:block;margin:0 auto 12px}footer a{color:var(--whe
 <p><b>Deal (0–100):</b> rent-to-price, cash flow per door, cash-on-cash and cap rate, assuming 20% down at the current 30-yr rate plus an investor premium, estimated taxes, insurance, and 8% vacancy, 8% repairs, 5% capex, 8% management. <b>Location (0–100):</b> NY DCJS index-crime rate for the property's actual municipality, NYSED graduation and Regents-with-Advanced rates for its school district, and local median list $/sqft, ranked across all listings. <b>Condition:</b> the condition the numbers require (100 − Deal) vs an observed estimate from listing text, age and price/sqft. Style scores blend the three with different weights.</p></details>
 <p class="disc"><b>Disclaimer:</b> All figures are automated estimates for informational purposes only and are not financial, legal or investment advice or an appraisal. Rents are third-party estimates; taxes are estimated from published full-value rates, not actual bills; condition is inferred from listing text, not an inspection. Listing data may be outdated or inaccurate. Verify everything independently before making any decision.</p>
 </div>
-<footer><img src="assets/logo-stacked-monogram-white-gold.png" alt="Howard Hanna Professionals">Paul Pezzimenti · Pezzimenti Realty · Howard Hanna Professionals · Olean, NY · <a href="tel:+17163787039">716-378-7039</a> · <a href="mailto:paul@paulpezzimenti.com">paul@paulpezzimenti.com</a><br><span id="upd"></span></footer>
+<footer><img src="assets/logo-stacked-monogram-white-gold.png" alt="Howard Hanna Professionals">Paul Pezzimenti · Howard Hanna Professionals, 410 Wayne Street, Olean, NY 14760 · <a href="tel:+17163787039">716-378-7039</a> · <a href="mailto:paulpezzimenti@howardhanna.com">paulpezzimenti@howardhanna.com</a><br><span id="upd"></span></footer>
 <script>
 const $=id=>document.getElementById(id);let D=[];
 const money=v=>v==null||v===''?'—':'$'+Math.round(v).toLocaleString();const pct=v=>v==null||v===''?'—':(v*100).toFixed(1)+'%';
