@@ -42,13 +42,14 @@ details{background:var(--white);padding:12px 16px;border-radius:8px;margin:14px 
 footer{background:var(--forest);color:var(--frost);font-size:.8rem;padding:24px 16px;text-align:center;border-top:4px solid var(--gold)}
 footer img{height:90px;display:block;margin:0 auto 12px}footer a{color:var(--wheat)}
 @media(max-width:600px){header h1{font-size:1.55rem}header .logo{height:24px}.cta img{height:48px}.btn{width:100%;text-align:center}}
-</style></head><body>
+#pager{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:16px 0}#pager button{padding:6px 11px;border:1px solid #c9a24a;background:#fff;border-radius:6px;cursor:pointer;font:inherit}#pager button.cur{background:#0f3d33;color:#fff}#pager button:disabled{opacity:.4;cursor:default}</style></head><body>
 <header><div class="wrap" style="padding:0"><img class="logo" src="assets/logo-horizontal-white-gold.png" alt="Howard Hanna Professionals"><h1>Western NY Rental Deal Finder</h1><p>Every for-sale single-family and 2–4 unit listing ($40k–$500k) across Erie, Niagara, Cattaraugus, Chautauqua, Allegany, Genesee, Wyoming &amp; Orleans counties — scored daily.</p></div></header>
 <div class="wrap">
 <div class="cta"><div class="who"><img src="assets/logo-stacked-monogram.png" alt="Howard Hanna Professionals"><div><b>Want help underwriting or touring one of these?</b><br>Paul Pezzimenti · Howard Hanna Professionals, 410 Wayne Street, Olean, NY 14760 · <a href="tel:+17163787039">716-378-7039</a> · <a href="mailto:paulpezzimenti@howardhanna.com">paulpezzimenti@howardhanna.com</a></div></div>
 <a class="btn" href="mailto:paulpezzimenti@howardhanna.com?subject=WNY%20rental%20deal%20inquiry">Contact Paul</a></div>
 <div class="filters">
-<div><label>Sort by</label><select id="sort"><option value="score_overall">Overall score</option><option value="score_cash_flow">Cash-flow investor</option><option value="score_turnkey">Turnkey / low headache</option><option value="score_value_add">Value-add / BRRRR</option><option value="score_appreciation">Appreciation</option><option value="deal_score">Deal score</option><option value="location_score">Location score</option><option value="obs_condition">Observed condition</option><option value="coc">Cash-on-cash</option><option value="cfd">Cash flow / door</option><option value="cap">Cap rate</option><option value="price_asc">Price (low→high)</option></select></div>
+<div><label>Sort by</label><select id="sort"><option value="score_overall">Overall score</option><option value="score_cash_flow">Cash-flow investor</option><option value="score_turnkey">Turnkey / low headache</option><option value="score_value_add">Value-add / BRRRR</option><option value="score_appreciation">Appreciation</option><option value="deal_score">Deal score</option><option value="location_score">Location score</option><option value="obs_condition">Observed condition</option><option value="coc">Cash-on-cash</option><option value="cfd">Cash flow / door</option><option value="cap">Cap rate</option><option value="price_asc">Price: low to high</option><option value="price_desc">Price: high to low</option></select></div>
+<div><label>Order</label><select id="dir"><option value="desc">High to low</option><option value="asc">Low to high</option></select></div>
 <div><label>County</label><select id="county"><option value="">All</option></select></div>
 <div><label>Municipality</label><select id="muni"><option value="">All</option></select></div>
 <div><label>Min price</label><input id="pmin" type="number" placeholder="40000"></div>
@@ -57,25 +58,27 @@ footer img{height:90px;display:block;margin:0 auto 12px}footer a{color:var(--whe
 <div><label>Condition OK?</label><select id="ok"><option value="">Any</option><option value="YES">Yes</option><option value="NO">No</option></select></div>
 <div><label>Meets all criteria</label><select id="pass"><option value="">Any</option><option value="1">Yes only</option></select></div>
 </div>
-<div id="count"></div><div class="grid" id="list"></div>
+<div id="count"></div><div class="grid" id="list"></div><div id="pager"></div>
 <details><summary><b>How the scores work</b></summary>
 <p><b>Deal (0–100):</b> rent-to-price, cash flow per door, cash-on-cash and cap rate, assuming 20% down at the current 30-yr rate plus an investor premium, estimated taxes, insurance, and 8% vacancy, 8% repairs, 5% capex, 8% management. <b>Location (0–100):</b> NY DCJS index-crime rate for the property's actual municipality, NYSED graduation and Regents-with-Advanced rates for its school district, and local median list $/sqft, ranked across all listings. <b>Condition:</b> the condition the numbers require (100 − Deal) vs an observed estimate from listing text, age and price/sqft. Style scores blend the three with different weights.</p></details>
 <p class="disc"><b>Disclaimer:</b> All figures are automated estimates for informational purposes only and are not financial, legal or investment advice or an appraisal. Rents are third-party estimates; taxes are estimated from published full-value rates, not actual bills; condition is inferred from listing text, not an inspection. Listing data may be outdated or inaccurate. Verify everything independently before making any decision.</p>
 </div>
 <footer><img src="assets/logo-stacked-monogram-white-gold.png" alt="Howard Hanna Professionals">Paul Pezzimenti · Howard Hanna Professionals, 410 Wayne Street, Olean, NY 14760 · <a href="tel:+17163787039">716-378-7039</a> · <a href="mailto:paulpezzimenti@howardhanna.com">paulpezzimenti@howardhanna.com</a><br><span id="upd"></span></footer>
 <script>
-const $=id=>document.getElementById(id);let D=[];
+const $=id=>document.getElementById(id);let D=[],PG=1;const PS=50;
 const money=v=>v==null||v===''?'—':'$'+Math.round(v).toLocaleString();const pct=v=>v==null||v===''?'—':(v*100).toFixed(1)+'%';
 const pill=(n,v)=>v==null||v===''?`<span class="pill">${n} —</span>`:`<span class="pill ${v>=65?'hi':v<35?'lo':''}">${n} ${Math.round(v)}</span>`;
 function opts(id,vals){[...new Set(vals)].filter(Boolean).sort().forEach(v=>$(id).insertAdjacentHTML('beforeend',`<option>${v}</option>`))}
 function render(){let s=$('sort').value,c=$('county').value,m=$('muni').value,a=+$('pmin').value||0,b=+$('pmax').value||1e9,u=$('units').value,ok=$('ok').value,p=$('pass').value;
  let r=D.filter(x=>(!c||x.county==c)&&(!m||x.municipality==m)&&x.price>=a&&x.price<=b&&(!u||x.units==u)&&(!ok||x.meets==ok)&&(!p||x.pass===true));
- if(s=='price_asc')r.sort((x,y)=>x.price-y.price);else r.sort((x,y)=>(y[s]??-1e9)-(x[s]??-1e9));
- $('count').textContent=`${r.length} of ${D.length} listings`;
- $('list').innerHTML=r.slice(0,200).map(x=>`<div class="card"><h3>${x.address}</h3><div class="sub">${x.municipality||x.town}, ${x.county} County · ${x.type} · ${x.units} unit${x.units>1?'s':''} · ${x.beds??'?'}bd/${x.baths??'?'}ba${x.year?' · built '+x.year:''}</div>
+ let dv=$('dir').value;if(s=='price_asc'){s='price';dv='asc'}else if(s=='price_desc'){s='price';dv='desc'}const sg=dv=='asc'?1:-1;r.sort((x,y)=>{const a=x[s],b=y[s];if(a==null&&b==null)return 0;if(a==null)return 1;if(b==null)return -1;return sg*(a-b)});
+ const N=r.length,pages=Math.max(1,Math.ceil(N/PS));if(PG>pages)PG=pages;const st=(PG-1)*PS,pr=r.slice(st,st+PS);
+ $('count').textContent=N?`Showing ${st+1}–${st+pr.length} of ${N} matching listings (${D.length} total)`:`0 of ${D.length} listings match`;
+ $('list').innerHTML=pr.map(x=>`<div class="card"><h3>${x.address}</h3><div class="sub">${x.municipality||x.town}, ${x.county} County · ${x.type} · ${x.units} unit${x.units>1?'s':''} · ${x.beds??'?'}bd/${x.baths??'?'}ba${x.year?' · built '+x.year:''}</div>
  <div class="scores">${pill('Overall',x.score_overall)}${pill('Deal',x.deal_score)}${pill('Location',x.location_score)}${pill('Condition',x.obs_condition)}</div>
  <div class="kv"><span>Price</span><b>${money(x.price)}</b><span>Est. rent</span><b>${money(x.rent)}/mo</b><span>Cash flow/door</span><b>${money(x.cfd)}/mo</b><span>Cash-on-cash</span><b>${pct(x.coc)}</b><span>Cap rate</span><b>${pct(x.cap)}</b><span>Condition OK?</span><b class="${x.meets=='YES'?'ok':'no'}">${x.meets||'—'}</b></div>
- ${x.flags&&x.flags!=''?`<div class="flags">⚠ ${x.flags}</div>`:''}<div style="margin-top:8px"><a href="${x.link}" target="_blank" rel="noopener">View listing →</a></div></div>`).join('')+(r.length>200?'<p>Showing first 200 — refine filters.</p>':'')}
+ ${x.flags&&x.flags!=''?`<div class="flags">⚠ ${x.flags}</div>`:''}<div style="margin-top:8px"><a href="${x.link}" target="_blank" rel="noopener">View listing →</a></div></div>`).join('');pager(pages)}
+function pager(n){let h='';const b=(p,t,d)=>`<button ${d?'disabled':''} ${p==PG?'class="cur"':''} onclick="PG=${p};render();$('count').scrollIntoView()">${t}</button>`;h+=b(PG-1,'‹ Prev',PG==1);for(let p=1;p<=n;p++){if(p==1||p==n||Math.abs(p-PG)<=2)h+=b(p,p,false);else if(Math.abs(p-PG)==3)h+='<span>…</span>'}h+=b(PG+1,'Next ›',PG==n);$('pager').innerHTML=h}
 fetch(window.DEALS_URL||'data/deals_web.json').then(r=>r.json()).then(j=>{D=j;opts('county',D.map(x=>x.county));opts('muni',D.map(x=>x.municipality));$('upd').textContent='Data updated '+(D[0]?.date||'');
- ['sort','county','muni','pmin','pmax','units','ok','pass'].forEach(i=>$(i).addEventListener('input',render));render()});
+ ['sort','county','muni','pmin','pmax','units','ok','pass'].forEach(i=>$(i).addEventListener('input',()=>{PG=1;render()}));$('dir').addEventListener('input',()=>{PG=1;render()});render()});
 </script></body></html>
